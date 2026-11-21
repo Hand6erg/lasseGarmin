@@ -3,11 +3,13 @@ import { strengthProgram, trainingMethods, weeks } from './lib/data';
 import { WeekView } from './views/WeekView';
 import { StrengthView } from './views/StrengthView';
 import { MethodsView } from './views/MethodsView';
+import { DataView } from './views/DataView';
 
-type Tab = 'uge' | 'styrke' | 'metoder';
+type Tab = 'uge' | 'data' | 'styrke' | 'metoder';
 
 const TABS: { id: Tab; label: string; icon: string }[] = [
   { id: 'uge', label: 'Uge', icon: '📅' },
+  { id: 'data', label: 'Data', icon: '📈' },
   { id: 'styrke', label: 'Styrke', icon: '🏋️' },
   { id: 'metoder', label: 'Metoder', icon: '⚡' },
 ];
@@ -32,6 +34,7 @@ export default function App() {
       )}
       {tab === 'styrke' && <StrengthView program={strengthProgram} selected={strengthDay} onSelect={setStrengthDay} />}
       {tab === 'metoder' && <MethodsView methods={trainingMethods} />}
+      {tab === 'data' && <DataView today={new Date()} />}
 
       <nav className="tabbar" aria-label="Faner">
         {TABS.map((t) => (
