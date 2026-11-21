@@ -1,0 +1,31 @@
+{
+  "year": 2026,
+  "week": 48,
+  "start": "2026-11-23",
+  "label": "Uge A",
+  "note": "Uden Garmin-data (ingen adgang denne uge) → samme volumen som sidste plan; torsdag afgøres af søndagens long run-puls.",
+  "sessions": [
+    { "date": "2026-11-23", "type": "styrke", "title": "Styrke — fuld krop", "target": "~60 min", "strengthDay": "mandag" },
+    {
+      "date": "2026-11-24",
+      "type": "svøm",
+      "title": "Svøm — teknik",
+      "target": "30–40 min, drills + 4×100 roligt",
+      "details": ["Fokus på teknik, intet tempopres", "Drills: catch-up, sidevejrtrækning, ben med plade"]
+    },
+    { "date": "2026-11-25", "type": "cykel", "title": "Cykel — endurance", "target": "60 min, Z2, HR <150", "details": ["Bonus-alternativ: onsdagsstyrke hvis du hellere vil det"] },
+    {
+      "date": "2026-11-26",
+      "type": "løb",
+      "title": "Kvalitetsløb — betinget",
+      "target": "Intervaller eller kontrolleret tempo",
+      "details": [
+        "Hvis søndagens long run lå under HR 150: Norsk 4×4 (HR >175), 10 min opvarmning og 10 min nedløb",
+        "Ellers: 10 min opvarmning, 20–30 min tempo på HR 165–172, 10 min nedløb"
+      ]
+    },
+    { "date": "2026-11-27", "type": "fri", "title": "Fri" },
+    { "date": "2026-11-28", "type": "styrke", "title": "Styrke — fuld krop", "target": "~60 min", "strengthDay": "mandag" },
+    { "date": "2026-11-29", "type": "løb", "title": "Long run", "target": "9–10 km, Z1–Z2, HR <150" }
+  ]
+}
