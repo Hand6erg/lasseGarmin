@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { countActive, isoWeek, pickDefaultWeek, shortDay, validateWeek, weekRange } from './logic';
+import { countActive, isoWeek, monthGrid, monthTitle, pickDefaultWeek, sessionsByDate, shortDay, validateWeek, weekRange } from './logic';
 import { weeks, strengthProgram } from './data';
 import type { WeekPlan } from './types';
 
@@ -67,5 +67,30 @@ describe('datafilerne', () => {
         expect(isoWeek(new Date(y, m - 1, d)), s.date).toEqual({ year: week.year, week: week.week });
       }
     }
+  });
+});
+
+describe('kalender', () => {
+  it('bygger en månedsgrid fra mandag til søndag', () => {
+    const rows = monthGrid(2026, 10); // november 2026
+    expect(rows[0].days[0]).toEqual({ date: '2026-10-26', day: 26, inMonth: false });
+    expect(rows[0].days[6]).toEqual({ date: '2026-11-01', day: 1, inMonth: true });
+    expect(rows[0].week).toBe(44);
+    expect(rows.at(-1)!.days[0].date).toBe('2026-11-30');
+    expect(rows).toHaveLength(6);
+    expect(rows.every((r) => r.days.length === 7)).toBe(true);
+  });
+  it('måned der starter på en mandag', () => {
+    const rows = monthGrid(2027, 1); // februar 2027
+    expect(rows[0].days[0].date).toBe('2027-02-01');
+    expect(rows).toHaveLength(4);
+  });
+  it('månedens navn', () => {
+    expect(monthTitle(2026, 10)).toBe('november 2026');
+  });
+  it('grupperer sessioner pr. dato', () => {
+    const map = sessionsByDate([w(2026, 39, '2026-09-21'), w(2026, 40, '2026-09-28')]);
+    expect(map.get('2026-09-28')?.[0].title).toBe('Løb');
+    expect(map.has('2026-09-22')).toBe(false);
   });
 });

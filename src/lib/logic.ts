@@ -85,3 +85,47 @@ export function validateWeek(w: WeekPlan): string[] {
   }
   return errors;
 }
+
+const MONTH_NAMES = ['januar', 'februar', 'marts', 'april', 'maj', 'juni', 'juli', 'august', 'september', 'oktober', 'november', 'december'];
+
+/** "november 2026" */
+export function monthTitle(year: number, month: number): string {
+  return `${MONTH_NAMES[month]} ${year}`;
+}
+
+export interface CalendarDay {
+  date: string;
+  day: number;
+  inMonth: boolean;
+}
+
+/** Ugerækker (mandag–søndag) der dækker måneden. `month` er 0-baseret. */
+export function monthGrid(year: number, month: number): { week: number; days: CalendarDay[] }[] {
+  const first = new Date(year, month, 1);
+  const cursor = new Date(first);
+  cursor.setDate(cursor.getDate() - ((first.getDay() + 6) % 7));
+  const rows: { week: number; days: CalendarDay[] }[] = [];
+  while (rows.length === 0 || (cursor.getMonth() === month && cursor.getFullYear() === year)) {
+    const week = isoWeek(cursor).week;
+    const days: CalendarDay[] = [];
+    for (let i = 0; i < 7; i++) {
+      days.push({ date: toISODate(cursor), day: cursor.getDate(), inMonth: cursor.getMonth() === month });
+      cursor.setDate(cursor.getDate() + 1);
+    }
+    rows.push({ week, days });
+  }
+  return rows;
+}
+
+/** Alle sessioner fra alle uger, grupperet pr. dato. */
+export function sessionsByDate(weeks: WeekPlan[]): Map<string, Session[]> {
+  const map = new Map<string, Session[]>();
+  for (const w of weeks) {
+    for (const s of w.sessions) {
+      const list = map.get(s.date);
+      if (list) list.push(s);
+      else map.set(s.date, [s]);
+    }
+  }
+  return map;
+}

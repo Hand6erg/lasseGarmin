@@ -144,3 +144,18 @@ button:disabled { cursor: default; }
 .chart-table th, .chart-table td { text-align: right; padding: 4px 6px; border-bottom: 1px solid var(--line); font-weight: 400; }
 .chart-table th:first-child, .chart-table thead th { color: var(--muted); }
 .chart-table tbody th { text-align: left; }
+
+/* Kalender */
+.calendar { width: 100%; border-collapse: separate; border-spacing: 3px; table-layout: fixed; margin-top: 12px; }
+.calendar th { font-size: 0.75rem; font-weight: 600; color: var(--muted); padding: 4px 0; }
+.calendar td { padding: 0; }
+.calendar .cal-wk { width: 28px; font-size: 0.7rem; font-weight: 400; font-variant-numeric: tabular-nums; }
+.cal-day {
+  width: 100%; aspect-ratio: 1 / 1.15; display: grid; grid-template-rows: auto 1fr; justify-items: center; align-items: start;
+  padding: 4px 0 2px; border-radius: 10px; background: var(--surface); border: 2px solid transparent; overflow: hidden;
+}
+.cal-day.out { background: transparent; opacity: 0.45; }
+.cal-day.today { border-color: var(--accent); }
+.cal-day.selected { background: var(--accent-soft); }
+.cal-num { font-size: 0.85rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+.cal-icons { font-size: 0.85rem; line-height: 1.1; letter-spacing: -0.1em; align-self: center; word-break: break-all; text-align: center; }

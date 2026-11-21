@@ -35,3 +35,17 @@ test('metoder-fanen', async ({ page }) => {
   await page.getByRole('button', { name: 'Metoder' }).click();
   await expect(page.getByRole('heading', { name: 'Norsk 4×4' })).toBeVisible();
 });
+
+test('kalender-fanen viser måneden og dagens sessioner', async ({ page }) => {
+  await page.clock.setFixedTime(new Date('2026-09-30T08:00:00'));
+  await page.goto('/');
+  await page.getByRole('button', { name: 'Kalender' }).click();
+  await expect(page.getByRole('heading', { name: 'september 2026' })).toBeVisible();
+  await expect(page.getByRole('list', { name: 'Dagens sessioner' })).toContainText('Cykel — endurance');
+
+  await page.getByRole('button', { name: 'Næste måned' }).click();
+  await expect(page.getByRole('heading', { name: 'oktober 2026' })).toBeVisible();
+  await page.getByRole('button', { name: 'Forrige måned' }).click();
+  await page.getByRole('button', { name: /^28\./ }).click();
+  await expect(page.getByRole('button', { name: 'Se hele styrkepasset' })).toBeVisible();
+});

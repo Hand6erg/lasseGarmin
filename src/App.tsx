@@ -4,11 +4,13 @@ import { WeekView } from './views/WeekView';
 import { StrengthView } from './views/StrengthView';
 import { MethodsView } from './views/MethodsView';
 import { DataView } from './views/DataView';
+import { CalendarView } from './views/CalendarView';
 
-type Tab = 'uge' | 'data' | 'styrke' | 'metoder';
+type Tab = 'uge' | 'kalender' | 'data' | 'styrke' | 'metoder';
 
 const TABS: { id: Tab; label: string; icon: string }[] = [
-  { id: 'uge', label: 'Uge', icon: '📅' },
+  { id: 'uge', label: 'Uge', icon: '📋' },
+  { id: 'kalender', label: 'Kalender', icon: '📅' },
   { id: 'data', label: 'Data', icon: '📈' },
   { id: 'styrke', label: 'Styrke', icon: '🏋️' },
   { id: 'metoder', label: 'Metoder', icon: '⚡' },
@@ -22,6 +24,18 @@ export default function App() {
     <div className="app">
       {tab === 'uge' && (
         <WeekView
+          weeks={weeks}
+          strengthDays={strengthProgram.days}
+          today={new Date()}
+          onOpenStrength={(id) => {
+            setStrengthDay(id);
+            setTab('styrke');
+            window.scrollTo(0, 0);
+          }}
+        />
+      )}
+      {tab === 'kalender' && (
+        <CalendarView
           weeks={weeks}
           strengthDays={strengthProgram.days}
           today={new Date()}

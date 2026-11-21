@@ -2,7 +2,7 @@ import { useState } from 'react';
 import type { Session, StrengthDay, WeekPlan } from '../lib/types';
 import { countActive, pickDefaultWeek, shortDay, toISODate, weekRange } from '../lib/logic';
 
-const ICON: Record<Session['type'], string> = {
+export const ICON: Record<Session['type'], string> = {
   styrke: '🏋️',
   løb: '🏃',
   svøm: '🏊',
@@ -81,18 +81,20 @@ export function WeekView({ weeks, strengthDays, today, onOpenStrength }: Props) 
   );
 }
 
-function SessionCard({
+export function SessionCard({
   session,
   isToday,
   strengthDay,
   onOpenStrength,
+  defaultOpen,
 }: {
   session: Session;
   isToday: boolean;
+  defaultOpen?: boolean;
   strengthDay?: StrengthDay;
   onOpenStrength: (id: string) => void;
 }) {
-  const [open, setOpen] = useState(isToday);
+  const [open, setOpen] = useState(defaultOpen ?? isToday);
   const day = shortDay(session.date);
   const expandable = !!session.details?.length || !!strengthDay;
   const rest = session.type === 'fri';
