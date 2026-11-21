@@ -3,7 +3,7 @@
   "week": 48,
   "start": "2026-11-23",
   "label": "Uge A",
-  "note": "HRV er faldet og ubalanceret siden midt i ugen (dårlig søvn) → kontrolleret tempo i stedet for intervaller torsdag og long run holdt på 10–12 km; styrke er kun logget én gang på to uger, så prioritér mandag og lørdag.",
+  "note": "HRV er faldet og ubalanceret siden midt i ugen (dårlig søvn) → kontrolleret tempo i stedet for intervaller torsdag og long run holdt på 10–12 km; styrke er kun logget én gang på to uger, så prioritér mandagens styrke.",
   "sessions": [
     {
       "date": "2026-11-23",
@@ -42,10 +42,10 @@
     { "date": "2026-11-27", "type": "fri", "title": "Fri" },
     {
       "date": "2026-11-28",
-      "type": "styrke",
-      "title": "Styrke — fuld krop",
-      "target": "~60 min, samme vægte som mandag",
-      "strengthDay": "mandag"
+      "type": "cykel",
+      "title": "Cykel — endurance",
+      "target": "60–75 min, Z2, HR <150",
+      "details": ["Roligt og jævnt — søndagens long run er dagen efter", "Hold pulsen under 150 hele vejen"]
     },
     {
       "date": "2026-11-29",
