@@ -3,7 +3,7 @@
   "week": 48,
   "start": "2026-11-23",
   "label": "Uge A",
-  "note": "Uden Garmin-data (ingen adgang denne uge) → samme volumen som sidste plan; torsdag afgøres af søndagens long run-puls.",
+  "note": "Uden Garmin-data (det private data-repo er ikke koblet til den planlagte kørsel) → samme volumen som sidste plan; torsdag afgøres af søndagens long run-puls.",
   "sessions": [
     { "date": "2026-11-23", "type": "styrke", "title": "Styrke — fuld krop", "target": "~60 min", "strengthDay": "mandag" },
     {
