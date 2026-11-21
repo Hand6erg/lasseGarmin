@@ -24,7 +24,8 @@ Used by the weekly scheduled run. Plans are written in Danish into `src/data/wee
 - Back extension: add a plate when 3×12 is easy.
 Only change the numbers in `styrkeprogram.json` when Garmin/strength data actually shows the criterion was met; bump `updated`.
 
-## Using Garmin data (if the athletedata connector is available)
+## Using Garmin data
+Source: `data/latest.json` in the private repo `Hand6erg/LasseGarminPrivat` (fetched by a GitHub Action every Sunday ~17:30; check `generated_at` is from today/yesterday). Never copy raw Garmin data into this public repo – only the plan and a one-line `note`.
 Look at the last 7–14 days: completed sessions vs. plan, long-run distance and average HR, interval HR, resting HR / HRV / sleep trend.
 - Missed sessions or clearly worse HRV/sleep/resting HR → keep volume flat or reduce, choose tempo instead of intervals.
 - Everything done and recovery stable → progress per the rules above.
