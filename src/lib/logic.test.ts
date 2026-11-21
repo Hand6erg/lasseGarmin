@@ -1,0 +1,71 @@
+import { describe, expect, it } from 'vitest';
+import { countActive, isoWeek, pickDefaultWeek, shortDay, validateWeek, weekRange } from './logic';
+import { weeks, strengthProgram } from './data';
+import type { WeekPlan } from './types';
+
+const w = (year: number, week: number, start: string): WeekPlan => ({
+  year,
+  week,
+  start,
+  sessions: [{ date: start, type: 'løb', title: 'Løb' }],
+});
+
+describe('isoWeek', () => {
+  it('finder rigtige ugenumre', () => {
+    expect(isoWeek(new Date(2026, 8, 28))).toEqual({ year: 2026, week: 40 });
+    expect(isoWeek(new Date(2026, 10, 21))).toEqual({ year: 2026, week: 47 });
+    expect(isoWeek(new Date(2027, 0, 1))).toEqual({ year: 2026, week: 53 });
+  });
+});
+
+describe('pickDefaultWeek', () => {
+  const list = [w(2026, 39, '2026-09-21'), w(2026, 40, '2026-09-28'), w(2026, 42, '2026-10-12')];
+  it('vælger den aktuelle uge', () => {
+    expect(pickDefaultWeek(list, new Date(2026, 8, 30))).toEqual({ index: 1, status: 'nu' });
+  });
+  it('vælger næste kommende uge hvis den aktuelle mangler', () => {
+    expect(pickDefaultWeek(list, new Date(2026, 9, 7))).toEqual({ index: 2, status: 'kommende' });
+  });
+  it('falder tilbage til den seneste uge', () => {
+    expect(pickDefaultWeek(list, new Date(2026, 10, 21))).toEqual({ index: 2, status: 'gammel' });
+  });
+  it('håndterer ingen planer', () => {
+    expect(pickDefaultWeek([], new Date()).status).toBe('ingen');
+  });
+});
+
+describe('formattering', () => {
+  it('viser dag og dato', () => {
+    expect(shortDay('2026-09-28')).toEqual({ weekday: 'man', date: '28/9' });
+    expect(weekRange('2026-09-28')).toBe('28. sep – 4. okt');
+  });
+  it('tæller kun aktive sessioner', () => {
+    expect(countActive([...w(2026, 1, '2025-12-29').sessions, { date: '2025-12-30', type: 'fri', title: 'Fri' }])).toBe(1);
+  });
+});
+
+// Fanger fejl i de JSON-filer, den ugentlige opgave skriver, før de kommer på siden.
+describe('datafilerne', () => {
+  it('alle ugeplaner er gyldige', () => {
+    expect(weeks.length).toBeGreaterThan(0);
+    for (const week of weeks) {
+      expect(validateWeek(week), `uge ${week.week}/${week.year}`).toEqual([]);
+    }
+  });
+  it('ugeplaner peger kun på styrkepas der findes', () => {
+    const ids = strengthProgram.days.map((d) => d.id);
+    for (const week of weeks) {
+      for (const s of week.sessions) {
+        if (s.strengthDay) expect(ids, `${s.date}`).toContain(s.strengthDay);
+      }
+    }
+  });
+  it('sessionerne ligger i den rigtige uge', () => {
+    for (const week of weeks) {
+      for (const s of week.sessions) {
+        const [y, m, d] = s.date.split('-').map(Number);
+        expect(isoWeek(new Date(y, m - 1, d)), s.date).toEqual({ year: week.year, week: week.week });
+      }
+    }
+  });
+});

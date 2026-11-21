@@ -1,0 +1,25 @@
+{
+  "year": 2026,
+  "week": 40,
+  "start": "2026-09-28",
+  "label": "Uge A",
+  "note": "6 sessioner, kun fredag fri.",
+  "sessions": [
+    { "date": "2026-09-28", "type": "styrke", "title": "Styrke — fuld krop", "target": "~60 min", "strengthDay": "mandag" },
+    { "date": "2026-09-29", "type": "svøm", "title": "Svøm — teknik", "target": "30–40 min, drills + 4×100 roligt" },
+    { "date": "2026-09-30", "type": "cykel", "title": "Cykel — endurance", "target": "60 min, Z2, HR <150" },
+    {
+      "date": "2026-10-01",
+      "type": "løb",
+      "title": "Kvalitetsløb — betinget",
+      "target": "Intervaller eller kontrolleret tempo",
+      "details": [
+        "Hvis søndagens long run lå under HR 150: rigtige intervaller (HR >175, korte hårde gentagelser)",
+        "Ellers: fortsat kontrolleret tempo, HR 165–172"
+      ]
+    },
+    { "date": "2026-10-02", "type": "fri", "title": "Fri" },
+    { "date": "2026-10-03", "type": "styrke", "title": "Styrke — fuld krop", "target": "~60 min", "strengthDay": "mandag" },
+    { "date": "2026-10-04", "type": "løb", "title": "Long run", "target": "9–10 km, Z1–Z2, HR <150" }
+  ]
+}

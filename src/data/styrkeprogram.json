@@ -1,0 +1,50 @@
+{
+  "updated": "2026-10-21",
+  "days": [
+    {
+      "id": "mandag",
+      "title": "Fuld krop (mandag)",
+      "duration": "~60 min",
+      "warmup": "5 min let cardio + hængsel/pres",
+      "exercises": [
+        { "name": "Dødløft (konventionel)", "sets": "3×5 @ 125–135 kg", "rest": "3 min", "note": "Alle 3×5 rent → +5 kg. Ingen max-forsøg" },
+        { "name": "Nordic hamstring curl (el. liggende leg curl)", "sets": "3×5–8", "rest": "90 sek", "note": "Sænk langsomt 3–5 sek, skub op med hænder" },
+        { "name": "Reverse lunge (stang/DB)", "sets": "3×8 pr. ben", "rest": "90 sek" },
+        { "name": "Pull-up", "sets": "4×max", "rest": "2 min", "note": "+5 kg på de 2 første sæt" },
+        { "name": "Stående militærpres (stang, strict)", "sets": "4×6–8 @ 50 kg", "rest": "2–3 min", "note": "4×8 → 52,5 kg. Sidste sæt til teknisk failure" },
+        { "name": "Calf raise", "sets": "3×15", "rest": "60 sek" }
+      ],
+      "core": [
+        { "name": "Pallof press", "sets": "3×12 pr. side" },
+        { "name": "Sideplanke", "sets": "3×30–40 sek pr. side" },
+        { "name": "RKC-planke", "sets": "3×20–30 sek", "note": "Spænd ALT: albuer mod tæer, klem bagdel" }
+      ]
+    },
+    {
+      "id": "onsdag",
+      "title": "Fuld krop (onsdag, kun A-uge)",
+      "duration": "~60 min",
+      "warmup": "5 min let cardio + hængsel/pres",
+      "intro": "Som mandag, men dødløft byttes ud. Onsdagsstyrke er bonus — drop ved travlhed.",
+      "exercises": [
+        { "name": "Back extension-maskine (bagdel-fokus)", "sets": "3×10–12", "note": "Let rund øvre ryg, hofter ind i puden, klem bagdel i toppen. Hold skive når det bliver let" },
+        { "name": "Nordic hamstring curl (el. liggende leg curl)", "sets": "3×5–8", "rest": "90 sek" },
+        { "name": "Reverse lunge (stang/DB)", "sets": "3×8 pr. ben", "rest": "90 sek" },
+        { "name": "Pull-up", "sets": "4×max", "rest": "2 min" },
+        { "name": "Stående militærpres (stang, strict)", "sets": "4×6–8 @ 50 kg", "rest": "2–3 min" },
+        { "name": "Calf raise", "sets": "3×15", "rest": "60 sek" }
+      ],
+      "core": [
+        { "name": "Pallof press", "sets": "3×12 pr. side" },
+        { "name": "Sideplanke", "sets": "3×30–40 sek pr. side" },
+        { "name": "RKC-planke", "sets": "3×20–30 sek" }
+      ]
+    }
+  ],
+  "progression": [
+    "Dødløft: alle 3×5 rene → +5 kg",
+    "Militærpres: 4×8 klaret @ 50 kg → 52,5 kg",
+    "Pull-up: +5 kg på første 2 sæt",
+    "Back extension: tilføj skive når 3×12 er let"
+  ]
+}

@@ -1,0 +1,21 @@
+[
+  {
+    "name": "Norsk 4×4",
+    "points": [
+      "4 min hårdt / 3 min roligt × 4",
+      "Én disciplin hele sessionen (løb, cykel, ro, ski eller svøm)",
+      "\"Hårdt\" = gentageligt: 4. interval skal ligne 1.",
+      "Start med ~10 min opvarmning, slut med nedjog"
+    ],
+    "inPlan": "Rigtige intervaller (HR >175) på kvalitetsdagen. Hæver VO2 max."
+  },
+  {
+    "name": "30-20-10",
+    "points": [
+      "30 sek roligt → 20 sek moderat → 10 sek all-out",
+      "5 gentagelser i træk uden pause = 1 blok",
+      "2–3 min roligt mellem blokke, 3–4 blokke i alt"
+    ],
+    "inPlan": "Alternativ til 4×4 på kvalitetsdagen — skift mellem dem."
+  }
+]
