@@ -13,6 +13,8 @@ A read-only training overview for Lasse's phone. A scheduled Claude run updates 
 - `src/data/styrkeprogram.json` – the current strength program (`StrengthProgram`). Sessions link to it with `strengthDay` (`"mandag"` / `"onsdag"`).
 - `src/data/metoder.json` – interval methods.
 - `src/lib/logic.ts` – pure functions (week numbers, default week, validation). Tests in `src/lib/logic.test.ts` also validate every data file.
+- `public/data/dashboard.enc.json` – encrypted Garmin data for the Data tab (charts). Copied as-is from `Hand6erg/LasseGarminPrivat/data/dashboard.enc.json` by the weekly run; decrypted in the browser (`src/lib/crypto.ts`) with the password Lasse types once. Never commit unencrypted Garmin data here.
+- `src/lib/stats.ts` + `src/components/Charts.tsx` + `src/views/DataView.tsx` – the charts.
 - `e2e/*.spec.ts` – Playwright, phone width.
 
 ## Planning
