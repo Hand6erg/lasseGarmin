@@ -3,9 +3,16 @@
   "week": 48,
   "start": "2026-11-23",
   "label": "Uge A",
-  "note": "Uden Garmin-data (det private data-repo er ikke koblet til den planlagte kørsel) → samme volumen som sidste plan; torsdag afgøres af søndagens long run-puls.",
+  "note": "HRV er faldet og ubalanceret siden midt i ugen (dårlig søvn) → kontrolleret tempo i stedet for intervaller torsdag og long run holdt på 10–12 km; styrke er kun logget én gang på to uger, så prioritér mandag og lørdag.",
   "sessions": [
-    { "date": "2026-11-23", "type": "styrke", "title": "Styrke — fuld krop", "target": "~60 min", "strengthDay": "mandag" },
+    {
+      "date": "2026-11-23",
+      "type": "styrke",
+      "title": "Styrke — fuld krop",
+      "target": "~60 min, samme vægte som sidst",
+      "strengthDay": "mandag",
+      "details": ["Ingen vægtøgning denne uge — fokus på rene gentagelser", "Log vægt og reps på uret, så progression kan følges"]
+    },
     {
       "date": "2026-11-24",
       "type": "svøm",
@@ -13,19 +20,39 @@
       "target": "30–40 min, drills + 4×100 roligt",
       "details": ["Fokus på teknik, intet tempopres", "Drills: catch-up, sidevejrtrækning, ben med plade"]
     },
-    { "date": "2026-11-25", "type": "cykel", "title": "Cykel — endurance", "target": "60 min, Z2, HR <150", "details": ["Bonus-alternativ: onsdagsstyrke hvis du hellere vil det"] },
+    {
+      "date": "2026-11-25",
+      "type": "cykel",
+      "title": "Cykel — endurance",
+      "target": "60 min, Z2, HR <150",
+      "details": ["Helt roligt — det er restitution efter en tung uge", "Bonus-alternativ: onsdagsstyrke, men kun hvis du føler dig frisk"]
+    },
     {
       "date": "2026-11-26",
       "type": "løb",
-      "title": "Kvalitetsløb — betinget",
-      "target": "Intervaller eller kontrolleret tempo",
+      "title": "Kvalitetsløb — kontrolleret tempo",
+      "target": "45–50 min med 20–25 min tempo, HR 165–172",
       "details": [
-        "Hvis søndagens long run lå under HR 150: Norsk 4×4 (HR >175), 10 min opvarmning og 10 min nedløb",
-        "Ellers: 10 min opvarmning, 20–30 min tempo på HR 165–172, 10 min nedløb"
+        "10 min rolig opvarmning",
+        "20–25 min jævnt tempo på HR 165–172 — ikke over",
+        "10 min rolig nedjog",
+        "Tempo i stedet for intervaller, fordi restitutionen (HRV/søvn) er faldet"
       ]
     },
     { "date": "2026-11-27", "type": "fri", "title": "Fri" },
-    { "date": "2026-11-28", "type": "styrke", "title": "Styrke — fuld krop", "target": "~60 min", "strengthDay": "mandag" },
-    { "date": "2026-11-29", "type": "løb", "title": "Long run", "target": "9–10 km, Z1–Z2, HR <150" }
+    {
+      "date": "2026-11-28",
+      "type": "styrke",
+      "title": "Styrke — fuld krop",
+      "target": "~60 min, samme vægte som mandag",
+      "strengthDay": "mandag"
+    },
+    {
+      "date": "2026-11-29",
+      "type": "løb",
+      "title": "Long run",
+      "target": "10–12 km, Z1–Z2, HR <150",
+      "details": ["Start roligt; gå op mod 12 km kun hvis pulsen holder sig under 150", "Sænk tempoet eller gå kort, hvis pulsen kryber over 150"]
+    }
   ]
 }
