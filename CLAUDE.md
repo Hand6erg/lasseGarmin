@@ -15,6 +15,9 @@ A read-only training overview for Lasse's phone. A scheduled Claude run updates 
 - `src/lib/logic.ts` – pure functions (week numbers, default week, validation). Tests in `src/lib/logic.test.ts` also validate every data file.
 - `e2e/*.spec.ts` – Playwright, phone width.
 
+## Planning
+See `PLANNING.md` for the training rules the weekly run follows.
+
 ## Data rules
 - Never delete old week files – they are Lasse's history.
 - `start` is the Monday of the ISO week; every session `date` must fall in that week; one entry per day (Mon–Sun), rest days as `"type": "fri"`.
