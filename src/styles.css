@@ -83,7 +83,7 @@ button:disabled { cursor: default; }
 .day-title { margin-top: 8px; }
 .exercises { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 8px; counter-reset: ex; }
 .exercise { background: var(--surface); border-radius: 12px; padding: 12px 14px; counter-increment: ex; }
-.exercise strong::before { content: counter(ex) '. '; color: var(--muted); font-weight: 500; }
+.exercise > .row-between strong::before { content: counter(ex) '. '; color: var(--muted); font-weight: 500; }
 .ex-meta { display: flex; gap: 10px; align-items: center; margin-top: 8px; font-size: 0.88rem; }
 .ex-note { font-size: 0.88rem; margin-top: 6px; line-height: 1.35; }
 .in-plan { margin: 12px 0 0; font-size: 0.92rem; color: var(--muted); }
@@ -159,3 +159,15 @@ button:disabled { cursor: default; }
 .cal-day.selected { background: var(--accent-soft); }
 .cal-num { font-size: 0.85rem; font-weight: 600; font-variant-numeric: tabular-nums; }
 .cal-icons { font-size: 0.85rem; line-height: 1.1; letter-spacing: -0.1em; align-self: center; word-break: break-all; text-align: center; }
+
+/* Sidste kg/reps pr. øvelse */
+.ex-last { margin-top: 10px; font-size: 0.88rem; }
+.ex-last .saved { color: var(--ok); font-weight: 600; }
+.ex-log { display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; margin-top: 8px; }
+.ex-log input {
+  min-width: 0; font: inherit; font-size: 16px; color: var(--text); background: var(--surface-2);
+  border: 1px solid transparent; border-radius: 10px; padding: 9px 10px;
+}
+.ex-log input:focus { outline: none; border-color: var(--accent); }
+.ex-log button:disabled { opacity: 0.45; }
+.visually-hidden { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }

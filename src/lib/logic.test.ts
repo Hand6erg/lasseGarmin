@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { formatEntry, makeEntry } from './log';
 import { countActive, isoWeek, monthGrid, monthTitle, pickDefaultWeek, sessionsByDate, shortDay, weekRange } from './logic';
 import type { WeekPlan } from './types';
 
@@ -65,5 +66,18 @@ describe('kalender', () => {
     const map = sessionsByDate([w(2026, 39, '2026-09-21'), w(2026, 40, '2026-09-28')]);
     expect(map.get('2026-09-28')?.[0].title).toBe('Løb');
     expect(map.has('2026-09-22')).toBe(false);
+  });
+});
+
+describe('sidste kg/reps', () => {
+  it('gemmer kun noget når der er skrevet noget', () => {
+    expect(makeEntry(' ', '', '2026-11-24')).toBeNull();
+    expect(makeEntry('132.5', ' 5 ', '2026-11-24')).toEqual({ kg: '132,5', reps: '5', date: '2026-11-24' });
+    expect(makeEntry('', '10, 8, 7', '2026-11-24')).toEqual({ reps: '10, 8, 7', date: '2026-11-24' });
+  });
+  it('formaterer', () => {
+    expect(formatEntry({ kg: '130', reps: '5', date: 'x' })).toBe('130 kg × 5');
+    expect(formatEntry({ reps: '10, 8', date: 'x' })).toBe('kropsvægt × 10, 8');
+    expect(formatEntry({ kg: '60', date: 'x' })).toBe('60 kg');
   });
 });
