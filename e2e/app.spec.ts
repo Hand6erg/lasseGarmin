@@ -50,3 +50,28 @@ test('kalender-fanen viser måneden og dagens sessioner', async ({ page }) => {
   await page.getByRole('button', { name: /^28\./ }).click();
   await expect(page.getByRole('button', { name: 'Se hele styrkepasset' })).toBeVisible();
 });
+
+test('gemmer sidste kg og reps pr. øvelse på telefonen', async ({ page }) => {
+  await page.clock.setFixedTime(new Date('2026-09-28T08:00:00'));
+  await openUnlocked(page);
+  await page.getByRole('button', { name: 'Styrke', exact: true }).click();
+
+  const form = page.getByRole('form', { name: 'Log Dødløft' });
+  await expect(form.getByRole('button', { name: 'Gem' })).toBeDisabled();
+  await form.getByLabel('Kg').fill('130');
+  await form.getByLabel('Reps').fill('5');
+  await form.getByRole('button', { name: 'Gem' }).click();
+  await expect(page.getByText('Sidst: 130 kg × 5')).toBeVisible();
+
+  // A new entry replaces the old one
+  await form.getByLabel('Kg').fill('132,5');
+  await form.getByLabel('Reps').fill('5, 5, 4');
+  await form.getByRole('button', { name: 'Gem' }).click();
+  await expect(page.getByText('Sidst: 132,5 kg × 5, 5, 4')).toBeVisible();
+  await expect(page.getByText('130 kg × 5')).toHaveCount(0);
+
+  // Still there after reload
+  await page.reload();
+  await page.getByRole('button', { name: 'Styrke', exact: true }).click();
+  await expect(page.getByText('Sidst: 132,5 kg × 5, 5, 4')).toBeVisible();
+});
